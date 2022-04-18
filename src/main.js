@@ -44,7 +44,8 @@ router.beforeEach(function (to, from, next) {
     }
   }
   userInfo(params).then(res => {
-    if (res.result.state !== 1) { // 没登录
+    console.log(params)
+    if (res.result == null || res.result.state !== 1) { // 没登录
       if (whiteList.indexOf(to.path) !== -1) { // 白名单
         next()
       } else {
